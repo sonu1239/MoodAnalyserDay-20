@@ -5,6 +5,8 @@ using MoodAnalyser;
 namespace moodAnalysisTest
 {
     [TestClass]
+
+  
     public class MoodTestCase
     {
         [TestMethod]
@@ -13,12 +15,14 @@ namespace moodAnalysisTest
             //TEST CASE-1
 
             //Arrange
-            string message = "I am in sad mood";
-            string expected = "SAD";
+            string message = null;
+            string expected = "Happy";
+
             //Act
             moodAnalysis analyser = new moodAnalysis(message);
-            string actual = analyser.AnalyseMood(message);
-            //Act
+            string actual = analyser.AnalyseMood();
+
+            //Assert
             Assert.AreEqual(expected, actual);
         }
     }
