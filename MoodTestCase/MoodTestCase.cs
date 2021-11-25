@@ -1,29 +1,59 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using MoodAnalyser;
+using System;
+using System.Runtime.Serialization;
 
 namespace moodAnalysisTest
 {
     [TestClass]
-
-  
     public class MoodTestCase
     {
+        //[TestMethod]
+        //public void TestMethod1()
+        //{
+        ////TEST CASE-1
+
+        ////Arrange
+        //string message = null;
+        //string expected = "Message Should Not Be Null";
+        //string actual = null;
+
+        //try
+        //{
+        //    //Act
+        //    moodAnalysis analyser = new moodAnalysis(message);
+        //    actual = analyser.AnalyseMood();
+        //}
+        //catch (MoodAnalyserCustomException ex)
+        //{
+        //    //Assert
+        //    Assert.AreEqual(expected, ex.Message);
+        //}
+
+
+        //}
+
         [TestMethod]
-        public void TestMethod1()
+        public void getCustomNullException()
         {
-            //TEST CASE-1
-
             //Arrange
-            string message = null;
-            string expected = "Happy";
+            string expected = "Message Should Not Be Empty";
+            moodAnalysis modeAnalyzer = new moodAnalysis(string.Empty);
 
-            //Act
-            moodAnalysis analyser = new moodAnalysis(message);
-            string actual = analyser.AnalyseMood();
+            try
+            {
+                //Act
+                string actual = modeAnalyzer.AnalyseMood();
 
-            //Assert
-            Assert.AreEqual(expected, actual);
+            }
+            catch (MoodAnalyserCustomException ex)
+            {
+
+                //Assert
+                Assert.AreEqual(expected, ex.Message);
+            }
+
         }
     }
 }
